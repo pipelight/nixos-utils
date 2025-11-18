@@ -26,6 +26,19 @@ in {
         '';
         example = literalExpression "'25.05'";
       };
+
+      useUserPackages = mkEnableOption ''
+        By default,
+        packages will be installed to $HOME/.nix-profile
+        but they can be installed to /etc/profiles if option is enabled
+
+        Avoid issues with "nixos-rebuild build-vm"
+
+        installation of user packages through the
+        {option}`users.users.<name>.packages` option
+
+      '';
+
       useGlobalPkgs = mkOption {
         type = with types; bool;
         default = true;
@@ -92,7 +105,7 @@ in {
       }
       # ++ umportHomeModules {paths = cfg.umports;}
       {
-        inherit (cfg) users stateVersion useGlobalPkgs extraSpecialArgs;
+        inherit (cfg) users stateVersion useGlobalPkgs useUserPackages extraSpecialArgs;
         imports =
           _getModules cfg.umports.paths
           ++ _getModules cfg.imports;

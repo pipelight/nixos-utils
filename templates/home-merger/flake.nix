@@ -58,7 +58,11 @@
             };
             home-merger = {
               users = ["anon"];
-              extraSpecialArgs = {inherit inputs;};
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              extraSpecialArgs = {
+                inherit inputs;
+              };
               # You can use default import or the recursive one (umport).
               imports = [
                 inputs.nur.modules.homeManager.default

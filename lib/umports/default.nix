@@ -181,6 +181,7 @@ Features:
     users ? ["anon"],
     stateVersion ? "25.05",
     useGlobalPkgs ? true,
+    useUserPackages ? false, # Set to false because not the default yet.
     extraSpecialArgs ? {},
     imports ? [],
   } @ homeArgs:
@@ -203,6 +204,7 @@ Features:
     users ? ["anon"],
     stateVersion ? "25.05",
     useGlobalPkgs ? true,
+    useUserPackages ? false,
     extraSpecialArgs ? {},
     imports ? [],
   } @ homeArgs: list:
@@ -224,6 +226,7 @@ Features:
     users ? ["anon"],
     stateVersion ? "25.05",
     useGlobalPkgs ? true,
+    useUserPackages ? false,
     extraSpecialArgs ? {},
     imports ? [],
   } @ homeArgs: {
